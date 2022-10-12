@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입하기</title>
+</head>
+<body>
+	<h1><b>회원 가입</b></h1>
+	<form action="test6_result.html">
+	<table border="1">
+		<tr>
+			<td>이름</td>
+			<td><input type="text"></td>
+		</tr>
+		<tr>
+			<td>ID</td>
+			<td><input type="text" placeholder="4 ~ 8글자 사이 입력" name = "id" >
+			<input type="button" value=ID중복확인 >
+			<span id="chcekIdResult"></span>
+			</td>
+		</tr>
+		<tr>
+			<td>비밀번호</td>
+			<td>
+			<input type = "number" type="password" placeholder="8 ~ 16글자 사이 입력" name="passwd">
+			<span id="chcekPasswdResult"></span>
+			</td>
+		</tr>
+		<tr>
+			<td>비밀번호 확인
+			<td>
+			<input type = "number" type="password">
+			<span id="chcekPasswdConfimResult"></span>
+			</td>
+		</tr>
+		<tr>
+			<td>주민번호</td>
+			<td><input type = "number" type="text"> -
+			<input type = "number" type="password"></td>
+		</tr>
+		<tr>
+			<td>E-Mail</td>
+			<td><input type="text">@
+			<input type="text">
+			<select>
+				<option>직접 입력
+				<option>naver.com
+				<option>nate.com
+				<option>gmail.com
+				<option>apple.com
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<td>직업</td>
+			<td><select>
+				<option>항목을 선택하세요</option>
+				<option>자영업</option>
+				<option>회사원</option>
+				<option>개발자</option>
+				<option>교사</option>
+				<option>군인</option>
+				<option>공무원</option>
+				<option>그 외</option>
+			</selcet></td>
+		</tr>
+		<tr>
+			<td>
+			성별
+			</td>
+			<td>
+			<input type="radio" name = gender>남
+			<input type="radio" name = gender>여
+			</td>
+			
+		</tr>
+		<tr>
+			<td>취미</td>
+			<td>
+			<input name ="hobby" type="checkbox">여행
+			<input name ="hobby" type="checkbox">독서
+			<input name ="hobby" type="checkbox">게임
+     	 	<input name ="hobby" type="checkbox" value="selectall" onclick="selectall(this)"/>전체선택
+     	 	</td>
+		</tr>
+		<tr>
+			<td>가입동기</td>
+			<td><textarea rows="15" cols="50"></textarea></td>
+		</tr>
+		<tr>
+		<td>
+		<input type="submit" value="가입">
+		<input type="reset"value="초기화">
+		<input type="button"value="돌아가기" onclick="history.back(-1);">
+		</td>
+		</tr>
+	</table>
+	</form>
+
+</body>
+</html>

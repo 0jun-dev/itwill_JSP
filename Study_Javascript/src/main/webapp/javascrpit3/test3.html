@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	Date 객체
+	- 날짜 및 시각 정보를 관리하는 내장 객체
+	*/
+	
+	// Date 객체의 인스턴스 생성
+	// 1) 현재 날짜를 기준으로 인스턴스 생성
+	var now = new Date(); // 소괄호 안에 아무것도 전달하지 않음
+	document.write(now + "<br>");
+	
+	// 2) 특정 날짜를 지정하여 인스턴스 생성
+// 	var now2 = new Date("2000-01-01"); // 소괄호 안에 문자열로 날짜를 전달
+// 	document.write(now2 + "<br>");
+	
+	// 3) 특정 날짜 및 시각을 지정하여 인스턴스 생성
+// 	var now3 = new Date("2010-12-31T23:59:59"); // 소괄호 안에 문자열로 날짜 및 시각을 전달
+// 	document.write(now3 + "<br>");
+
+	var now4 = new Date(2020, 10, 10, 13, 20, 50);
+	document.write(now4 + "<br>")
+	document.write("<hr>");
+	
+	//=========================================================================
+	// Date 객체의 메서드 활용
+	// 연, 월, 일, 시, 분, 초 를 각각 가져오기 getXXX()메서드
+	var year = now.getFullYear();
+	var month = now.getMonth() + 1;
+	var day = now.getDate();
+	var hour = now.getHours();
+	var min = now.getMinutes();
+	var sec = now.getSeconds();
+	
+	document.write(year + "년" + month + "월" + day + "일" + hour + "시" + min + "분" + sec + "초");
+	
+	document.write(now.toLocaleString());
+	
+	document.write("<hr>");
+	
+	// =======================================================================
+	// Date 객체의 getTime() 메서드를 사용하여 날짜 계산
+	var today = new Date(); // 오늘(현재)을 기준으로 Date 객체 생성
+	// 현재 시각 대신 자정을 기준으로 설정하기 위해 시, 분, 초를 각각 0으로 설정
+	today.setHours(0);
+	today.setMinutes(0);
+	today.setSeconds(0);
+	
+	var targetDay = new Date("2022-09-23"); // 대상 날짜를 지정하여 Date 객체 생성
+	today.setHours(0);
+	today.setMinutes(0);
+	today.setSeconds(0);
+	
+	document.write("today = " + today.toLocaleString() + "<br>");
+	document.write("targetDay = " + targetDay.toLocaleString() + "<br>");
+	
+	var getTimeToday = today.getTime();
+	var getTimeTargetDay = targetDay.getTime();
+	
+// 	document.write("getTimeToday = " + getTimeToday + "<br>");
+// 	document.write("getTimeTargetDay = " + getTimeTargetDay + "<br>");
+
+	// 오늘(getTimeToday)을 기준으로 대상 날짜(getTimeTargetDay)와의 차이 계산
+	var difference =  getTimeToday - getTimeTargetDay;
+	// => 결과값이 밀리초(ms) 단위이므로 이 값을 일 또는 연 등으로 변환해야함
+	// ex) 일 기준으로 환산 시 : 밀리초 -> 초(/1000) -> 분(/ 60) -> 시(/ 60) -> 일(/ 24)
+// 	var convertTime = difference / 1000 / 60 / 60 / 24;
+	
+	// Math 객체의 round() 메서드를 활용하여 반올림 가능
+	// => 반올림 된 결과값을 정수로 리턴
+	var convertTime = Math.round(difference / 1000 / 60 / 60 / 24);
+// 	document.write(convertTime);
+
+	// 계산 결과에 대한 양수, 음수, 동등 판별
+	if(convertTime > 0) { // 양수(= 오늘 기준으로 대상일자가 과거라는 의미)
+		document.write(convertTime + "일 지났습니다.");
+	}else if(convertTime < 0) {
+		// 단, 음수를 양수로 변환해서 출력 필요 (Math 객체의 abs() 메서드 활용)
+		document.write(Math.abs(convertTime) + "일 남았습니다.");
+	}else {
+		document.write("오늘입니다.")
+	}
+
+
+	
+	
+		
+		
+		
+		
+</script>
+</head>
+<body>
+
+</body>
+</html>

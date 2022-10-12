@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+ 	[ window 객체의 하위 객체 - location ]
+	- 페이지 이동 관련 정보를 관리하는 객체(= 페이지 이동 관련 작업 담당)
+	- window 객체의 하위 객체이므로 window.location 형식으로 접근해야하지만
+	  보통 sindow 객체명은 생략하고 location.XXX 형식으로 사용
+ 
+	 */
+	function func1() {
+		// 현재 웹브라우저 주소표시줄 정보 확인을 위해 location 객체의 href 속성값 확인
+		alert(location.href);
+		
+		// func3() 함수에서 페이지 새로고침 기능 확인을 위해 임시로 배경색 변경
+		document.body.style.background = "GRAY"; // 윈도우창 백그라운드 회색으로 변경
+	}
+	
+	function func2() {
+		// URL 정보(주소) 변경을 위해 location 객체의 href 속성값 변경
+// 		location.href = "http://www.naver.com"; // 많이 쓰임
+		location.href = "test4.html"; // 주소 및 파일명도 가능
+	}
+	
+	function func3() {
+		// URL 정보 새로고침을 위해 location 객체의 reload() 함수 호출
+		// => URL 정보에 해당하는 페이지를 다시 로딩 = 웹브라우저 새로고침(F5) 와 동일
+		location.reload();
+	}
+	
+	function func4(target) {
+		// 1. if 문을 사용하여 전달받은 문자열이 "cart"일 경우 해당 href로 이동
+		//                                       "order"일 경우 해당 href로 이동
+// 		if(target == "cart") {
+// 			location.href = "test5_cart.html";
+// 		} else if(target == "order") {
+// 			location.href = "test5_order.html";
+// 		}
+		
+		// 2. 문자열 결합을 통해 test5.html 문자열 사이에 전달받은 "cart" 또는 "oreder" 을 결합하여
+		// location.href 속성값으로 저장
+		location.href = "test5_" + target + ".html";
+		
+		
+	}	
+</script>
+</head>
+<body>
+	<h1>test5.html</h1>
+	<input type="button" value="URL 정보 확인" onclick="func1()"> <br>
+	<input type="button" value="URL 정보 변경" onclick="func2()"> <br>
+	<!-- 버튼 클릭 시 직접 location.href 속성으로 페이지 이동도 가능 -->
+	<!-- 주의! " " 내에서는 ' ' 로 대체사용 -->
+	<input type="button" value="URL 정보 변경 2" onclick="location.href='test4.html'"> <br>
+	<input type="button" value="URL 정보 새로고침" onclick="func3()"> <br>
+	<hr>
+	<!-- 복수개의 버튼을 하나의 함수에서 각각 구분하여 다른 페이지로 이동 -->
+	<!-- 함수 호출 시 파라미터로 각 페이지 구분을 위한 정보를 다르게 전달 -->
+	<input type="button" value="장바구니 담기" onclick="func4('cart')"> <br>
+	<input type="button" value="즉시 구매" onclick="func4('order')"> <br>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>

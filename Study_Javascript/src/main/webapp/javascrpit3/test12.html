@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	 [ 문서 내에서 각 요소에 접근하는 방법 = 이미지(img태그) ]
+	 1. document.getElementXXX() 또는 document.querySelector() 등
+	 2. 이미지(img 태그) 에 지정된 name 속성값으로 접근 가능
+	    => document.name속성값.속성명 : 지정된 name 속성값에 해당하는 대상 요소의 특정 속성에 접근
+	       ex) document.img1.src = "1.jpg";
+	 3. 이미지(img 태그) 전체(= 복수개)를 배열형태로 접근 가능
+	    => document.images[인덱스].속성명 : 복수개의 이미지 중 인덱스에 해당하는 이미지의 속성에 접근
+		   ex) document.images[0].src
+		   
+	 [ document.querySelector() 사용시 유의사항! ]
+	 document.querySelector(#infoArea).innerHTML = " "; == #) body본문의 id(infoArea)라는 이름(별명)접근
+	 document.qureySelector(.infoArea).innerHTML = " "; == .) 'infoArea' 라는 클래스에 접근
+	 
+	 */
+ 	function func1() {
+// 	 	document.getElementById("infoArea").innerHTML = "최영준";
+// 	 	documet.querSelector("#infoArea").innerHTML = "영준";       // 둘 다 가능
+		// img 태그에 접근하여 해당 태그의 속성값 출력 => document.name속성값.속성명
+// 		 document.querySelector("#infoArea").innerHTML =
+// 		 "src=" + document.img1.src + "<br>"  // img 정보 출력
+// 		 + "width=" + document.img1.width + "<br>" // img 가로 크기 출력
+// 		 + "hright=" + document.img1.height + "<br>"; // img 새로 크기 출력
+			
+			// 배열 형식을 사용하요 img태그에 접근
+		document.querySelector("#infoArea").innerHTML =
+		 "src=" + document.images[0].src + "<br>"  // img 정보 출력
+		 + "width=" + document.images[0].width + "<br>" // img 가로 크기 출력
+		 + "heigt=" + document.images[0].height + "<br>"; // img 새로 크기 출력
+	}
+ 	
+ 	function func2() {
+ 		// documnet 본문에 쓰여진 이미지를 간단한 접근을 통해 변경할 수 있다.
+ 		// 이미지 정보 변경(파일명 : 2.jpg 가로크기 : 300, 세로크기 250)	
+		document.img1.src = "2.jpg";
+		document.img1.width = "300";
+		document.img1.height = "250"; 
+ 	}
+ 
+</script>
+</head>
+<body>
+	<h1>test12.html</h1>
+	<img src="1.jpg" name="img1" width="150" height="150" title="펭수1" alt="펭수없음"> <br>
+	<button onclick="func1()">이미지 속성정보 출력</button>
+	<button onclick="func2()">이미지 속성정보 변경</button>
+	<div id="infoArea"></div>
+</body>
+</html>

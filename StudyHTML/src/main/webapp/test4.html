@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 입력양식을 하나로 묶어줄 form 태그 지정 -->
+	<form action="test4_result.html">
+		<!-- <input> 태그를 사용하여 기본 입력 항목 생성 가능 -->
+		<!-- type 속성을 조정하여 다양한 형식의 입력이 가능하도록 변경 가능 -->
+		<!-- type="text" 속성 지정 시 키보드로 텍스트 한 줄 입력이 가능한 입력창 표시-->
+		<input type="text"><br>
+		<input type="text" placeholder="이름을 입력하세요"><br>
+		
+		<!-- value 지정시 속성값에 해당하는 값을 입력창에 표시 -->
+		<input type="text" name = "name" value="홍길동"><br>
+		
+		<!-- 읽기 전용 -->
+		<input type="text" value="홍길동" readonly="readonly"><br>
+		
+		<!-- 숫자만 입력 가능 -->
+		<input type="number"><br>
+		
+		<!-- 입력 항목 숨김처리 -->
+		<input type="password" placeholder="패스워드를 입력하세요"><br>
+		
+		<hr>
+		
+		<!-- 복수체크 가능한 체크박스 생성 -->
+		취미 :
+		<input type="checkbox" >등산 
+		<!-- checked 지정시 체크된 체크박스 생성 -->
+		<input type="checkbox" checked="checked">영화감상
+		<input type="checkbox" name="programming">프로그래밍
+		<br>
+		
+		<!-- radio 지정시 복수개의 항목 중 단일 선택가능한 버튼 생성 -->
+		<!-- 주의! 단일선택이 가능하려면 그룹화 필수! 모든 항목의  name 속성값이 같아야함 -->
+		성별 :
+		<input type="radio" name="gender">남
+		<input type="radio" name="gender" checked="checked">여
+		
+		<br>
+		
+		날짜 :
+		<input type="date"> <!-- 날짜 입력 -->
+		<input type="button" value="검색"> <!-- 버튼(텍스트 표시를 위해 value 속성 설정 -->
+		
+		<hr>
+		
+		직업 :
+		<select>
+			<option>직업을 선택하세요</option>
+			<option selected="selected">개발자</option> <!-- 기본 선택 -->
+			<option disabled="disabled">건물주(선택불가)</option>
+			<option>아르바이트생</option>
+		</select>
+		<hr>
+		
+		자기소개 :
+		<textarea rows="5" cols="80"></textarea>
+		<hr>
+		
+		<input type="submit" value="가입">
+		<input type="reset" value="초기화">
+		
+	</form>
+	
+	
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+ 	[ window 객체의 하위 객체 history ]
+	- 웹브라우저의 방문 기록을 관리하는 객체
+	- 웹브라우저를 통해 접속했던 페이지의 주소(URL) 정보를 저장하고 관리
+	- 속성 : length 등
+	- 메서드 : back(), forward(), go() 등
+ 	*/
+	function func1() {
+		// 현재 웹브라우저에 저장된 방문기록에 대한 갯수 확인
+		alert(history.length);
+	}
+	
+	function func2() {
+		// 웹브라우저에 저장된 페이지 방문기록 중 현재 페이지 기준 이전페이지로 이동
+		// => 뒤로가기 버튼과 동일 = 1단계 이전 페이지로 이동
+		history.back();
+	}
+	
+	function func3() {
+		// 웹브라우저에 저장된 페이지 방문기록 중 현재 페이지 기준 다음페이지로 이동
+		// => 앞으로 가기 버튼과 동일 = 1단계 다음 페이지로 이동
+		history.forward();
+	}
+
+	function func4() {
+		// 현재 웹페이지에서 n번째 페이지로 이동 => go() 함수
+		// => 이 때, n번째 이전 페이지로 이동하려면 음수값 전달
+		history.go(-2);
+	}
+
+	function func5() {
+		// 현재 웹페이지에서 n번째 페이지로 이동 => go() 함수
+		// => 이 때, n번째 다음 페이지로 이동하려면 양수값 전달
+		history.go(2);
+	}
+</script>
+</head>
+<body>
+	<h1>html6.html - history</h1>
+	<input type="button" value="방문기록 갯수 확인" onclick="func1()"> <br>
+	<input type="button" value="이전 페이지" onclick="func2()"> <br>
+	<input type="button" value="다음페이지" onclick="func3()"> <br>
+	<input type="button" value="2단계 이전 페이지" onclick="func4()"> <br>
+	<input type="button" value="2단계 다음 페이지" onclick="func5()"> <br>
+	</body>
+</html>

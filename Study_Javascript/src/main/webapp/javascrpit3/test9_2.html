@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// setInterval() 함수를 통한 타이머 객체를 저장할 변수 선연(전역 변수로 선언)
+	// => 전역변수란? 모든 함수(=자바스크립트 전체)에서 접근 가능한 변수
+	var timer; // 함수 외부에서 선언했으므로 모든 함수에서 접근 가능
+	
+	/*
+	[ innerText vs innerHtml ]
+	- 둘 다 대상 요소(객체)의 내용을 확인하거나 변경하는 용도로 사용
+	- innerText 는 요소의 내용 중 텍스트만 취급하지만
+	  innerHtml 은 대상 요소의 내용을 HTML 태그까지 모두 취급
+	- 기본 사용법
+	  확인 : document.getElementXXX().innerText 또는 document.getElementXXX().innerHTML 형
+	  변경 : document.getElementXXX().innerText = 내용 or
+	         document.getElementXXX().innerHTML = 내용
+	*/
+	function funcInnerText() {
+		// id 선택자가 "divAreaText" 인 요소 객체 가져요기 
+		let divAreaText = document.getElementById("divAreaText");
+		// innerText 속성을 활용하여 해당 div 태그 내의 텍스트 내용변경
+		divAreaText.innerText = "<h3>innerText 로 변경한 텍스트</h3>"
+	}
+	
+	function funcInnerHtml() {
+		// id 선택자가 "divAreaHtml" 인 요소 객체 가져요기 
+		let divAreaHtml = document.getElementById("divAreaHtml");
+		// innerHTML 속성을 활용하여 해당 div 태그 내의 텍스트 내용변경
+		divAreaHTML.innerHTML = "<h3>innerHTML 로 변경한 텍스트</h3>" 
+	}
+	
+	function showDate() {
+		let date = new Date();
+		document.getElementById("divDate").innerHTML = date;
+	}
+	
+	function showTimer() {
+		/*
+		자바스크립트 내에서 어떤 작업(함수 호출 등)을 주기적으로 반복하기 위해서는
+		setInterval() 함수를 호출하여 반복할 작업(함수)과 반복 주기를 파라미터로 전달
+		이 때, 반복 주기는 밀리초(ms) 단위의 값 전달(1초 = 1000ms)
+		
+		< 기본 문법 >
+		setInterval(함수, 반복주기);
+		
+		< 타이머 반복 중지 기본 문법 > 
+		clearInterval(중지할 타이머 객체);
+		*/
+		refreshTimer();
+		
+		// setInterval() 함수를 통해 반복 실행하는 인터벌 객체를 timer 변수에 저장하면
+		// 다른 함수에서 해당 타이머에 접근이 가능하며, 중지도 가능함
+		timer = setInterval(refreshTimer, 1000); // 타이머 동작객체 변수에 저장
+	}
+	
+	function stopTimer() {
+		// 전역변수로 선언되어있는 타이머 변수에 접근하여 타이머를 중지 시킬 수 있음
+		clearInterval(timer);
+// 		document.getElementById("divTimer").innerHTML ==""; // div 영역 타이머 제거
+	}
+	
+	function refreshTimer() {
+		let divTimer = document.getElementById("divTimer");
+		let now = new Date();
+		divTimer.innerHTML = now;
+	}
+</script>
+</head>
+<body>
+	<h1>test9_2.html</h1>
+	<button onclick="funcInnerText()">innerTEXT</button>
+	<button onclick="funcInnerHtml()">innerHTML</button>
+	<div id="divAreaText"><!-- innerText 로 내용을 변경할 위치 --></div>
+	<div id="divAreaHTML"><!-- innerHtml 로 내용을 변경할 위치 --></div>
+	<hr>
+	<button onclick="showDate()">날짜 및 시각 표시</button>
+	<div id="divDate"><!-- 날짜 및 시각 표시 --></div>
+	<hr>
+	<button onclick="showTimer()">타이머시작</button>
+	<div id="divTimer"><!-- 타이머 표시 --></div>
+	<hr>
+	<button onclick="stopTimer()">타이머중지</button>
+	<div id="divTimer"><!-- 타이머 표시 --></div>
+</body>
+</html>

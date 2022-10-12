@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	선택자(Selector)
+	- HTML 문서에서 특정 대상을 구분하는 용도로 사용되는 속성
+	- id, class, 태그 등을 사용
+	1) id 선택자(#) : 태그 요소를 유일하게 구분할 수 있도록 지정하는 선택자
+	2) class 선택자(.) : 태그 요소를 복수개 선택할 수 있도록 지정하는 선택자
+	3) 태그 선택자) : 해당 태그를 직접 선택할 수 있도록 지정하는 선택자
+	
+	[ document 객체를 사용하여 특정 선택자를 갖는 요소를 선택하는 방법 ]
+	1. id 선택자 : document.getElementById("id 선택자명")
+	2. class 선택자 document.getElementsByClassName("class 선택자명")
+	2. 태그 선택자 document.getElementsByTagName("태그명") // tags태그명
+	=> 리턴되는 객체를 통해 해당 요소에 접근하여 다양한 작업 수행 가능
+	=> 이 때, id 선택자를 지정하면 대상 태그에 대한 단일 객체가 리턴되며
+	   class 선택자 또는 태그 선택자를 지정하면 대상 태그들에 대한 복수개의 객체가
+	   HTMLCollection 타입 객체로 리턴되어 반복문 등을 통해 접근 가능
+	*/
+	
+	// HTML 태그 요소 중 id 선택자가 "header1" 인 태그 객체 가져오기
+	function func1() {
+		let idHeader1 = document.getElementById("header1");
+// 		alert(idHeader1);
+		idHeader1.style.background = "YELLOW";
+		// 변수에 저장하는 과정 없이 직접 접근도 가능
+		 document.getElementById("header2").style.background = "SKYBLUE";
+		//----------------------------------------------------------------------
+		// class 선택자를 통해 복수개의 요소에 접근
+		// => document.getElementsByClassName()
+		 let header5 = document.getElementsByClassName("header5");
+		// 리턴받은 객체는 대상 객체가 복수개가 저장된 객체이므로 반복문 필요
+	// 	header5.style.background = "PINK"; // 일반적인 방법으로직접 접근 불가 = 오류 발생
+		for(let h5 of header5) {
+			h5.style.background = "PINK";
+		}
+		//----------------------------------------------------------------------
+		// 태그 선택자를 통해 복수개의 요소에 접근
+		// => document.getElementsByTagName()
+		// => class 선택자 접근 방법과 동일함
+		let header4 = document.getElementsByTagName("h4");
+		for(let h4 of header4) {
+			h4.style.background = "CYAN";
+		}
+		
+		document.get
+	
+	}
+
+</script>
+</head>
+<body>
+	<h1>test9.html</h1>
+	<input type="button" value="확인" onclick="func1()">
+	<h3 id="header1">Header - 1</h3>
+	<h3 id="header2">Header - 2</h3>
+	<h4 id="header3">Header - 3</h4>
+	<h4 id="header4">Header - 4</h4>
+	<hr>
+	<h3 class="header5">Header - 5_1</h3>
+	<h3 class="header5">Header - 5_2</h3>
+	
+</body>
+</html>

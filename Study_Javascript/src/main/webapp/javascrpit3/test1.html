@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	자바스크립트 구성요소
+	1. 변수(var, let, const)
+	2. 함수(내장 함수, 사용자 정의 함수)
+	3. 객체(내장 객체, 사용자 정의 객체)
+	
+	[ 자바스크립트에서의 객체 ]
+	- 자바와 달리 클래스 틀이 아닌 객체 자체를 정의 가능
+	- 객체를 담기 위한 변수를 선언하고, 해당 변수에 중괄호를 사용하여 객체 내의 속성(변수) 정의
+	- 별도의 인스턴스 생성 과정 없이 지정된 변수를 통해 객체를 즉시 접근(사용) 가능
+	
+	< 객체 정의 기본 문법 >
+	var 객체변수명 = {
+	 		// 키 : 값 의 형태로 객체 내의 속성 정의(= 변수명 : 데이터)
+			키1 : 값1,
+			키2 : 값2,
+			...
+			키n : 값n
+	}
+	
+	< 객체 사용 기본 문법 >
+	객체변수명.키
+	*/
+	
+	// 사용자 정의 객체 생성
+	// => 이름 과 나이 를 갖는 Person 객체 정의
+	var person = {
+		// 객체가 갖는 키:값 을 명시 (이 때, 키:값 의 한 쌍을 Property(프로퍼티) 라고 함)
+		name : "홍길동",
+		age : 20,
+		hobby : "" // 저장할 데이터가 없을 경우 최소한의 데이터(널스트링) 함께 지정 비워두기x
+	}
+	
+	// 객체를 저장하고 있는 person 변수의 타입은 객체라는 의미의 object 타입이 됨
+	document.write("person 변수의 타입 : " + typeof(person) + "<br>\n");
+	
+	// 1. 객체 내의 프로퍼티 키(key)를 사용하여 값(value) 가져오기
+	document.write("이름(name) : " + person.name + "<br>\n");
+	document.write("나이(age) : " + person.age + "<br>\n");
+	document.write("취미(hobby) : " + person.hobby + "<br>\n");
+	
+	// 2. 객체 내의 프로퍼티 키(key)를 사용하여 값(value) 변경하기
+	// 이름을 "이순신"으로, 나이를 44로, 취미를 "없음"으로 변경
+	person.name = "이순신";
+	person.age = 44;
+	person.hobby = "없음";
+	document.write("이름(name) 변경 후 : " + person.name + "<br>\n");
+	document.write("나이(age) 변경 후 : " + person.age + "<br>\n");
+	document.write("취미(hobby) 변경 후 : " + person.hobby + "<br>\n");
+	
+	// 3. 객체에 새로운 프로퍼티 추가(= 새로인 키와 값을 추가 저장)
+	person.isHungry = true;
+	person.height = 180.5;
+	document.write("이름(name) 변경 후 : " + person.name + "<br>\n");
+	document.write("나이(age) 변경 후 : " + person.age + "<br>\n");
+	document.write("취미(hobby) 변경 후 : " + person.hobby + "<br>\n");
+	document.write("배고픔상태(isHungry) : " + person.isHungry + "<br>\n");
+	document.write("키(height) : " + person.height + "<br>\n");
+	
+	// 4. 객체 내의 프로퍼티 삭제
+	// => delete 연산자 사용 (delete 객체명.키)
+	// => 삭제 후 해당 프로퍼티는 존재하지 않으므로 값 출력 시 undefined 출력됨
+	// person 객체의 height 프로퍼티 삭제
+	delete person.height
+	document.write("키(height) 삭제 후 : " + person.height + "<br>\n");
+	
+	// 5. 객체 내에 특정 프로퍼티 존재 여부 확인
+	// => in 연산자 사용("키" in 객체명)
+	document.write("name 이라는 키가 존재 합니까? " + ("name" in person) + "<br>\n");	
+	document.write("height 이라는 키가 존재 합니까? " + ("height" in person) + "<br>\n");
+	
+	
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

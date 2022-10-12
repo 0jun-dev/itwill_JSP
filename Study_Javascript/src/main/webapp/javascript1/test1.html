@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// 자바스크립트 내에서 한 줄 주석 사용법(= 자바와 동일)
+	/*
+	자바스크립트 내에서 범위 주석 사용법(= 자바와 동일)
+	*/
+	
+	// 이 위치에 실행 할 자바스크립트 코드 기술
+	// => 기술된 코드느 별도의 함수 등의 형태가 아닌 이상 차례대로 실행됨
+//	alert("자바스크립트 실행됨!");
+//s	alert("alert() 함수 호출됨!");
+	// => alert() 함수는 함수 파라미터로 전달받은 데이터를 웹브라우저 다이얼로그를 통해 
+	//    출력하는 역할을 수행
+	// ----------------------------------------------------------------------------
+	/*
+	[ 자바스크립트에서의 변수 사용법 ]
+	< 기본 문법 >
+	데이터타입 변수명 = 값;
+	=> 단, 자바의 데이터타입과 동일한 타입을 사용하지 않음(동일한 타입도 존재함)
+	=> 문자(String), 숫자(Number), 논리(Boolean), 특수값 Null 등 사용
+	=> 다만, 별도의 타입을 지정하지 않고 일반적인 공통 타입으로 변수를 선언하며
+	   저장되는 데이터에 따라 해당 변수의 데이터타입이 자동으로 결정됨
+	=> 일반적으로 변수 선언 시 데이터타입 대신 var 또는 let 또는 const 중 하나를 타입처럼 사용 
+	*/
+	
+// 	var str = "자바스크립트"; // 문자(또는 문자열) 데이터를 저장하는 String 타입을 취급됨 ('', "" 사용)
+	// => 자바스크립트에서는 문자와 문자열의 구분이 없다!
+// 	alert(str); // str 변수에 저장된 데잍를 웹브라우저에 출력
+
+	// 특정 변수 또는 데이터의 데이터타입 확인 방법 : typeof 키워드 사용
+	// => 기본 문법 : typeof 변수명 또는 typeof 데이터
+    //                typeof(변수명) 또는 typeof(데이터)
+// 	alert("str 변수값 = " + str + ", str 변수 타입 = " + typeof(str));
+	// => 실행결과 : alert("str 변수값 = " + str + ", str 변수 타입 = " + typeof(str));
+
+// 	var num = 100; // 정수 데이터를 저장하는 number 타입으로 취급됨
+// 	alert("num 변수값 = " + num + ", num 변수 타입 = " + typeof(nums));
+	// => 실행결과 : alert("num 변수값 = " + num + ", num 변수 타입 = " + typeof(num));
+	
+// 	num = 3.14; // 정수, 실수 구분없이 모두 number 타입으로 취급됨
+// 	alert("num 변수값 = " + num + ", num 변수 타입 = " + typeof(nums));
+	
+// 	var b = true;
+// 	alert("b 변수값 = " + b + ", b 변수 타입 = " + typeof(b));
+	
+	// 주의! 자바스크립트에서 특수한 타입
+// 	var v1; 
+	// 변수에 아무 데이터도 저장하지 않을 경우 값이 정해지지 않았으므로
+	// undefined 값이 저장되고, 데이터타입도 undefined 타입을 취급됨
+// 	alert("v1 변수값 = " + v1 + ", v1 변수 타입 = " + typeof(v1));
+	
+	var v2 = null; // 변수에 특수값인 null 값 저장 시 object 타입(객체)으로 취급됨(소문자 null 필수)
+// 	alert("v2 변수값 = " + v2 + ", v2 변수 타입 = " + typeof(v2));
+	
+	//===================변수 사용 연습============================
+ 	// document.write() 함수를 호출하여 웹페이지(웹브라우저)에 출력할 데이터를 전달하면 화면에 그대로 출력됨
+ 	// => 함수 내의 파라미터에는 문자열 형태로 HTML 태그를 그대로 사용 가능
+ 	// 변수 data 선언 및 100 으로 초기화
+ 	var data = 100;
+//  document.write(data); // data 변수값을 웹페이지에 표시(출력)
+	// HTML 태그를 적용한 data 변수값 출력
+	document.write("<h3>data = " + data + " </h3>");
+	
+	// 기존 변수 data 에 다른 데이터(정수 200) 를 저장할 경우 기존 값은 제거됨
+	data = 200;
+	document.write("<h3>변경 후 data = " + data + " </h3>");
+	
+	// data2 변수 선언하고 "Hellom world!" 문자열을 저장 및 출력
+	var data2 = "Hello, world!";
+	document.write(data2+ "<br>"); 
+	
+	// 변수 선언 시 var 대신 let 사용(기본 사용법은 var 과 동일함)
+	let data3 = "Hello, world!";
+	document.write(data3 + " : " + typeof(data3) + "<br>");
+	
+	// 기존에 선언된 변수에 다른 타입의 데이터를 저장하면 데이터타입이 변경됨
+	data3 = 50; // String -> Number 타입으로 변경됨
+	document.write(" 변경 후 " + data3 + " : " + typeof(data3) + "<br>");
+	
+	
+	
+</script>
+</head>
+<body>
+	<script type="text/javascript">
+// 		alert("body 태그 내의 자바스크립트");
+		document.write("이 곳은 body 영역 h1 태그 앞입니다.");
+	</script>
+	<h1>이 곳은 body 태그 영역입니다.</h1>
+	
+	<script>
+		document.write("이 곳은 body 영역 h1 태그 뒤입니다.");
+	</script>
+	
+</body>
+</html>

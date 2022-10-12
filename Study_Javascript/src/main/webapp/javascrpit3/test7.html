@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>document 객체 기초</title>
+<script type="text/javascript">
+	/*
+ 	[ window 객체의 하위 객체 - document]
+	- HTML 문서 정보(내용)를 관리하는 객체
+	- 문서 정보 확인, 내용 변경 등의 작업 수행 가능
+	- 속성 : title bgColor, fgColor 등
+	- 메서드 : write() 등
+ 	*/
+	function func1() {
+		// HTML 문서 제목(title 태그 내용) 확인
+		alert(document.title);
+	}
+	
+	function func2() {
+		// HTML 문서 제목(title 태그 내용) 변경(= 제목 표시줄 내용 변경 = title 속성값 변경)
+		document.title = "변경된 타이틀";
+		
+	}
+	
+	function func3() {
+		// HTML 문서 색상 정보 확인 (= bgColor, fgColor)
+		alert("bgColor : " + document.bgColor + "\n fgColor : " + document.fgColor);
+		// bgColor(backGround) = 배경색, fgColor(Fore) = 전경색
+	}
+
+	function func4() {
+		// HTML 문서 색상 정보 변경
+		// => 속성값으로 "색상명" 또는 색상코드값("#RRGGBB") 으로 지정
+		//    (값이 커질수록 해당 색이 진해지며, 모든 값이 최대이면 흰색, 최소이면 검정색)
+		// 1. 색상명을 지정하여 색상 변경
+// 		document.bgColor = "YELLOW"; // 배경색 노랑색으로 변경
+// 		document.fgColor = "BLUE"; // 전경색(= 텍스트) 를 파랑으로 변경
+
+		// 2. 색상코드값을 지정하여 색상 변경
+		document.bgColor = "#FFFF00"; // 배경색 노랑으로 변경 
+		document.fgColor = "#0000FF"; 
+	}
+
+	function func5(color) {
+		// 파라미터로 전달받은 색상명을 사용하여 배경색 변경하기
+		document.bgColor = color;
+	}
+</script>
+</head>
+<body>
+	<h1>test7.html - document</h1>
+	<input type="button" value="문서 제목 출력" onclick="func1()"> <br>
+	<input type="button" value="문서 제목 변경" onclick="func2()"> <br>
+	<input type="button" value="문서 배경색 출력" onclick="func3()"> <br>
+	<input type="button" value="문서 배경색 변경" onclick="func4()"> <br>
+	<hr>
+	<!-- 
+	라디오버튼을 사용하여 선택시 지정색상으로 배경색 변경 
+	이 때, 함수 호출 시 파라미터로 색상명을 전달하여 함수 내에서 해당 색상을 사용 가능
+	-->
+<!-- 	<input type="radio" name="bgColor" value="CYAN" onclick="func5('CYAN')">CYAN -->
+<!-- 	<input type="radio" name="bgColor" value="MAGENTA" onclick="func5('MAGENTA')">MAGENTA -->
+<!-- 	<input type="radio" name="bgColor" value="GRAY" onclick="func5('GRAY')">GRAY -->
+	
+	<!-- 
+	value 속성을 색상명으로 지정했을 경우 함수 호출 시 파라미터에 직접 색상명 전달 대신 
+	this.value 값을 전달해도 동일한 색상명이 전달됨(value 값 전달)
+	=> 태그 내에서 this 사용 시 해당 태그 전체를 의미하며 this. 속성명 지정지
+	해당 태그 내의 특정 속성값을 지정하는 용도로 사용됨
+	-->
+	<input type="radio" name="bgColor" value="CYAN" onclick="func5(this.value)">CYAN
+	<input type="radio" name="bgColor" value="MAGENTA" onclick="func5(this.value)">MAGENTA
+	<input type="radio" name="bgColor" value="GRAY" onclick="func5(this.value)">GRAY
+	
+</body>
+</html>

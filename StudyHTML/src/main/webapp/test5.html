@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>아이티윌 부산교육센터</title>
+</head>
+<body>
+	<form action="test5_result.html">
+		<!--
+		 폼 태그 내의 요소의 값들을 다른 페이지로 전송 및 데이터를 사용하려면 name 속성 지정 필수!
+		 input type="text" 등의 입력 항목은 데이터를 기술하지 않으면 파라미터명만 전송됨
+		 체크박스 항목은 미체크시 파라미터 자체가 전송되지 않음
+		 -->
+		 <input type="text" placeholder="아이디" name="id"><br>
+		 <input type="password" placeholder="패스워드" name="passwd"><br>
+	     <input type="checkbox" name="rememberLogin">로그인 상태 유지<br>
+	     <input type="submit" value="로그인">
+	     
+	     <!-- 
+	     아이디, 패스워드 입력 및 로그인 상태 유지 체크박스 체크 후
+	     로그인 버튼 클릭 시 test5_result.html 페이지로 이동
+	     => 이 때, 입력된 항목들을 가지고 페이지로 이동
+	     test5_result.html?id=&passwd=
+	     test5_result.html?id=admin&passwd=
+	     test5_result.html?id=admin&passwd=1234
+	     test5_result.html?id=admin&passwd=1234&rememberLogin=on
+	      -->
+	
+	</form>
+	
+	
+</body>
+</html>

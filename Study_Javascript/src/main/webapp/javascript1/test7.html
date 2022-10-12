@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	자바스크립트에서의 형변환 
+	- 함수와 연산자에 사용되는 값은 대부분 적합한 데이터타입으로 자동형변환이 일어남
+	- 상황에 따라 개발자가 의도한 타입으로 변환하는 것을 명시적 형변환(= 강제 형변환)이라고 함
+	- 자바스크립트의 데이터타입 첫글자를 대문자로 지정하여 형변환 연산자를 사용 가능
+	  (String,Number,Booldean 등)
+	
+	< 명시적 형변환 기본 문법 >
+	데이터타입(데이터)
+	*/
+	
+	// 1. 문자열(String) 타입으로 변환
+	// => 참고 alert() 함수의 파라미터는 stirng 타입이며
+	//    다른 타입 전달 시 자동으로 string 타입으로 변환 됨
+	// => String(데이터)
+	var value1 = 1;
+	document.write("value1 변환 전 타입 : " + typeof(value1) + "<br>");
+	
+	// number 타입인 value1 변수의 타입을 문자 타입(string)으로 변환 할 경우
+	value1 = String(value1); // 첫글자 대문자 필수
+	document.write("value1 변환 후 타입 : " + typeof(value1) + "<br>");
+	
+	var value2 = true;
+	document.write("value2 변환 전 타입 : " + typeof(value2) + "<br>");
+	
+	// boolean 타입인 value2 변수의 타입을 문자 타입(string) 으로 변환 할 경우
+	value2 = String(value2)
+	document.write("value2 변환 후 타입 : " + typeof(value2) + "<br>");
+	
+	//========================================================================
+	// 2. 숫자(number) 타입으로 변환
+	// - 수학 관련 함수나 연산자를 사용한 연산 과정에서는 자동으로 숫자 타입 형변환 일어남
+	//   ex) 문자형숫자(string) / 문자형숫자(string) = 숫자(number) 타입으로 변환 후 연산
+	// - 변환 방법 : Number(데이터)
+	// - 주로, prompt() 함수 등을 사용하여 데이터 입력 시 문자로 취급되므로 변환 시 사용
+	document.write("10" / "5"); // string / string = number 로 변환 후 연산
+	document.write("<br>");
+	
+	// "정수를 입력하세요" 창을 통해 숫자 1개를 입력받아 srtNum 변수에 저장
+	var strNum = prompt("정수를 입력하세요.");
+	document.write("strNum 변환 전 타입 : " + typeof(strNum) + "<br>");
+	
+	// strNum 값을 정수로 변환하여 num 변수에 저장
+	var num = Number(strNum);
+	document.write("strNum 변환 후 타입 : " + typeof(num) + "<br>");
+	
+	// switch-case 문의 case 문 사용시 문자 데이터일 경우 숫자로 자동 변환이 일어나지 않으므로
+	// 강제 형변환을 통해 number 타입으로 변환해야만 정수 형태의 값 비교 가능
+	switch(Number(strNum)) { 
+		case 1 : 
+		document.write("<h3>입력된 값은 1입니다.</h3>");
+		break;
+		case 2 : 
+		document.write("<h3>입력된 값은 2입니다.</h3>");
+		break;
+	}
+	
+	document.write("<hr>");
+	//=======================================================================
+	// 주의! string  -> number 로 변환 시 숫자 데이터 외의 다른 데이터가 섞여있을 경우
+	// 변환 과정에서 number 타입으로 변환은 일어나지만 데이터에 특수한 값이 저장됨
+	// NaN : Not a Number 의 약자로 숫자가 아닌 데이터라는 의미의 특수한 값
+	var strNum2 = "1234a";
+	document.write(strNum2 + "변환 전 타입 : " + typeof(strNum2) + "<br>");
+	
+	var num2 = Number(strNum2); // "1234a" 를 숫자로 변환 불가능하므로 NaN값 저장됨(타입은 number)
+	document.write(num2 + "변환 후 타입 : " + typeof(num2) + "<br>");
+	
+	document.write("<hr>");
+	//=======================================================================
+	var age = 15;
+	// => 자바스크립트의 변수는 데이터타입이 자동으로 결정되므로
+	//    결과값이 실수가 되는 연산 결과는 실수 형태 그대로 저장됨
+	
+	// 10대를 판별하기 위해 10으로 나눈 몫이 1인지 비교하기 위해서는 그대로 비교하지 못함
+	// => 반드시 연산 결과를 정수 형태로 변환 후 비교해야함
+	// parseInt(값) : 지정된 값을 정수 형태로 변환해줌
+	if(parseInt(age / 10) == 1) {
+		document.write(num2 + "<br>10대 입니다.");
+	}
+	
+	
+	
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

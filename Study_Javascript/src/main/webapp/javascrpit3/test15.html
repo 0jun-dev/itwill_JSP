@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function check() {
+		// 셀렉트 박스 선택 항목에 접근하기 위해 셀렉트 박스의 value 속성 활용
+		let divInfoArea = document.querySelector("#infoArea");
+		divInfoArea.innerHTML = document.fr.fruits.value;
+	}
+	
+	function check2() {
+		// 현재 셀렉트 박스 fruits4 항목이 "선택하세요" 일 경우
+		// 다른 항목으로 선택을 유도하는 alert() 메세지 출력
+		// 1. 셀렉트박스 선택항목이 "" 인지 판별
+// 		if(document.fr.fruits4.value == "") {
+// 			alert("과일 선택 필수");
+// 			document.fr.fruits4.focus(); // "" 일시 셀렉트박스 포커스 
+// 		} else {
+// 			let divInfoArea = document.querySelector("#infoArea");
+// 			divInfoArea.innerHTML = document.fr.fruits4.value;
+// 		}
+		
+		// 2. 셀렉트박스 내의 옵션 태그항목들이 options[] 라는 배열로 관리되어짐
+		//    => 해당 항목의 인덱스에 해당하는 요소의 속성 중 selected 속성이 true
+		//       인지 판별
+		if(document.fr.fruits4.options[0].selected) { // == true
+			alert("과일 선택 필수");
+			document.fr.fruits4.focus();
+		} else if(document.fr.fruits4.options[1].selected) {
+			// 선택이 완료된 항목은 목록에서 선택 불가능하도록 변경 (품절)
+			document.fr.fruits4.options[1].disabled = true;
+		}
+		
+	}
+	
+	function itemSelected(item) {
+		// 항목을 변경하는 즉시 해당 항목이 div 영역에 표시 (확인버튼 없이)
+// 		let divInfoArea = document.querySelector("#infoArea");
+// 		divInfoArea.innerHTML = item;
+
+		// 텍스트박스에 선택항목 표시
+		document.fr.selectedFruits.value = item;
+	}
+	
+</script>
+</head>
+<body>
+	<h1>test15.html</h1>
+	<form action="" name="fr">
+		<select name="fruits">
+			<option value="Apple">사과</option>
+			<option value="Strawberry">딸기</option>
+			<option value="Banana">바나나</option>
+		</select>
+			<input type="button" value="확인" onclick="check()">
+			<hr>
+		<select name="fruits2">
+			<option value="Apple">사과</option>
+			<!-- disabled = 품절시, 접근 금지 -->
+			<option value="Strawberry" disabled="disabled">딸기</option>
+			<!--  selected = 위치가 어디에있든 최우선순위 표시 -->
+			<option value="Banana" selected="selected">바나나</option>
+		</select>
+			<input type="button" value="확인" onclick="check()">
+			<hr>
+			<!-- size = "n" 설정시 n개 사이즈만한 리스트박스 생성 -->
+		<select name="fruits3" size="2">
+			<option value="Apple">사과</option>
+			<option value="Strawberry">딸기</option>
+			<option value="Banana">바나나</option>
+		</select>
+			<input type="button" value="확인" onclick="check()">
+			<hr>
+		<select name="fruits4">
+			<!-- 
+			셀렉트 항목 선택이 필수가 아닐 경우 또는 항목을 반드시 확인 후 선택해야 할 경우
+			널스트링 값을 갖는 option 태그 항목 추가
+			 -->
+			<option value="">선택하세요</option>
+			<option value="Apple">사과</option>
+			<option value="Strawberry">딸기</option>
+			<option value="Banana">바나나</option>
+		</select>
+			<input type="button" value="확인" onclick="check2()">
+			<hr>
+		<select name="fruits5" onchange="itemSelected(this.value)">
+			<!-- 
+			셀렉트박스 항목 변경을 감지하는 이벤트 : onchange
+			함수 호출 시 선택된 항목의 value 속성값을 전달하기 위해
+			this.value 를 파라미터로 전달
+			 -->
+			<option value="">선택하세요</option>
+			<option value="Apple">사과</option>
+			<option value="Strawberry">딸기</option>
+			<option value="Banana">바나나</option>
+		</select>
+		<input type="text" name="selectedFruits">
+	</form>
+	<div id="infoArea"></div>
+		
+</body>
+</html>

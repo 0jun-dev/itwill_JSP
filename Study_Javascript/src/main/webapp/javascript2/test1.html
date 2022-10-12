@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	사용자 정의 함수
+	- 자바스크립트에서 제공되는 내장 함수 외에 개발자가 직접 정의하는 함수
+	- 자바의 메서드와 달리 접근제한자 및 리턴타입을 명시하지 않으며
+	  파라미터 변수 지정시 데이터타입도 명시하지 않음
+	- <scrip> 태그 내의 자바스크립트 코드는 기본적으로 웹페이지 로딩 시 바로 실행되지만
+	  함수를 정의할 경우에는 반드시 호출을 통해 실행 가능함
+	- 정의된 함수는 <script> 태그 내의 아무 위치에서나 호출 가능
+	
+	< 사용자 정의 함수 기본 문법 >
+	function 함수이름([매개변수 ...]) {
+		// 외부로부터 함수가 호출되면 실행할 코드들...
+		[return [값];]
+	}
+	*/
+	
+	// 자바스크립트 함수는 선언부보다 앞쪽(윗쪽)에서도 호출 가능함
+// 	showMessage();
+	
+	// showMessage() 함수 정의 => 파라미터 : 없음, 리턴값 : 없음
+	function showMessage() {
+		alert("showMessage() 함수 호출됨!");
+	}
+	// => 이 함수는 반드시 호출을 통해서 실행 가능하다!
+	
+	// showMessage() 함수 호출
+// 	showMessage();
+	
+	//------------------------------------------------------------------------
+	// sum() 함수 정의 => 파라미터 없음
+	// => 1 ~10 까지의 합을 반복문을 통해 계산 후 alert() 함수를 통해 결과(55) 출력
+	function sum() {
+		var total = 0;
+		for(var i = 1; i <= 10; i++) {
+			total += i;
+		}
+		alert(total);
+	}
+// 	sum();
+	// 주의! 외부 자바스크립트 파일을 불러오기 전에 먼저 호출하면 오류 발생!
+// 	printName();
+	
+</script>
+<!-- 외부 자바스크립트 파일 불러오기 -->
+<!-- 같은 디렉토리에 위치하는 파일이므로 src 속성에 파일명만 지정 -->
+<!-- 불러오는 script 태그 이후로 해당 파일 내의 함수를 호출해야 한다! -->
+<script src = test1.js></script>
+</head>
+<body>
+	<h1>test1.html - 사용자 정의 함수</h1>
+	<script type="text/javascript">
+	// 별도의 스크립트 블럭에서 호출도 가능함
+	showMessage();
+	printName(); // 호출 가능
+	</script>
+	
+</body>
+</html>

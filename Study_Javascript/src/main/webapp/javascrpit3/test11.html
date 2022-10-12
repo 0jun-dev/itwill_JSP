@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+// 	let btnChangeImage = document.getElementById("btnChangeImage");
+// 	alert(btnChangeImage);
+
+	function load() {
+		alert("load()");
+	}
+	
+	// body 태그에 onload="load()" 속성 지정 대신 window.onload 도 동일 이벤트
+	window.onload = function() {
+// 		alert("load2()");
+
+		// body 영역이 모두 로딩된 후 자동으로 이벤트 리스너에 의해 함수가 실행됨
+		// => 이 함수 내에서는 body 영역의 모든 요소에 접근 가능해짐(로딩이 완료되었기 때문)
+		let btnChangeImage = document.getElementById("btnChangeImage");
+// 		alert(btnChangeImage); // [object HTMLButtonElement] => 버튼이 있다는 말
+		
+		// 이미지 교체 버튼 클릭했을때 이벤트 처리
+		// => 대상 요소 객체명.onXXX이벤트명 = 함수명;
+		// => 주의! 함수를 전달하기만 하므로 호출 코드가 기술되면 안된다!
+		//    즉, 함수명 대신 함수명() 코드 사용 불가
+		btnChangeImage.onclick = changeImage; 
+		// => btnChangeImage버튼을 onclick하면 btnChangeImage가 실행되게 하라.
+//------------------------------위 아래 둘 중 아무거나 사용 가능-----------------------------		
+		// 이미지 복원 버튼(btnRecoveryImage)을 클릭했을 때 이벤트 처리 => changeImage2함수 실행
+// 		document.getElementById("btnRecoveryImage").onclick = changeImage2;
+		// => btnRecoveryImage버튼을 onclick하면 btnChangeImage2가 실행되게 하라.
+		//---------------------------------------------------------------------
+		// 만약, 함수 이름을 한 번만 사용하고 더 이상 사용하지 않을 경우 = 1회성 함수일 경우
+		// => 별도로 함수를 정의하지 않고, 이벤트 연결 시 함수 구현까지 모두 작성 가능
+		// 객체명.onXXX = function() {함수 호출시 실행할 코드}
+		// => 주의! 함수에 이름 지정하지 않음 = 익명함수(Anonymous Function)
+		document.getElementById("btnRecoveryImage").onclick = function() {
+			let jpg1 = document.getElementById("img");
+			jpg1.src = "1.jpg";
+		};
+		// changeImage2 함수와 동일한 실행 가능 버튼 생성
+	}; // window.onload() 이벤트 끝
+	
+	function changeImage() {
+		let jpg1 = document.getElementById("img");
+		jpg1.src = "2.jpg";
+	}
+	
+	function changeImage2() {
+		let jpg1 = document.getElementById("img");
+		jpg1.src = "1.jpg";
+	}
+</script>
+</head>
+<body>
+	<h1>test11.html</h1>
+	<img src="1.jpg" id="img" width="150" height="150" > <br>
+	<button id="btnChangeImage">이미지 교체</button>
+	<button id="btnRecoveryImage">이미지 복원</button>
+</body>
+</html>

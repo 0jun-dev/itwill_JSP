@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// docume 객체는 HTML 문서 자체의 정보를 담고 있으며, 문서의 시작을 가리침
+	// => DOM 의 진입점 역할을 수행
+	// => documnet 객체를 통해 문서의 구성요소(Element)를 접근 가능 (단계별로 접근도 가능)
+	document.write("document 객체 : " + document + "<br>");
+	// =>  [object HTMLDocument] : HTML 문서 자체를 관리하는 객체
+	
+	document.write("document.documentElement" + document.documentElement + "<br>");
+	// => [object HTMLHtmlElement] : <html> 태그부문을 관리하는 객체
+	
+	document.write("document.head" + document.head + "<br>");
+	// => [object HTMLHeadElement] : <head> 태그부문을 관리하는 객체
+	
+	document.write("document.body" + document.body + "<br>");
+	// => [object HTMLBodyElement] : <body> 태그부문을 관리하는 객체
+	
+</script>
+</head>
+<body>
+	<h1>test8.html</h1>
+	<div>목록 시작</div>
+	<ul>
+		<li>항목1</li>
+		<li>항목2</li>
+	</ul>
+	<div>목록 끝</div>	
+	
+	<script type="text/javascript">
+	// <body> 태그 내의 각 자식 요소들을 차례대로 접근
+	// => document 객체의 body 객체를 통해 childNodes 객체에 접근 시 자식 노드 접근 가능
+	// => 배열 구조로 되어 있으므로 자식 노드의 배열 크기를 인덱스로 활용하여
+	//    모든 자식을 차례대로 접근 가능
+		for(let i = 0; i < document.body.childNodes.length; i++) {
+			alert( document.body.childNodes[i] + " : " +  document.body.childNodes[i].nodeName + "<br>");
+		}
+	</script>
+	<!-- 
+	 이 부분 부터는 scrpit 태그 보다 아래쪽에 위치하므로
+	 script 태그 실행 시점에서는 아직 로딩 전이다!
+	 따라서, 위의 스크립트 내에서 자식 노드 접근 시 아래쩍 h1 태그는 탐색 요소에 포함되지 않는다.
+	 -->
+</body>
+</html>

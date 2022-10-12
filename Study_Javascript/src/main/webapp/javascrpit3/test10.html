@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	onmouseover = 마우스를 올려두었을 시 이벤트 발생
+	onmouseout = 선언부분에서 마우스가 벗어났을 시 이벤트 발생
+	placeholder = type="text" 등 텍스트 작성이 가능 한 곳에 작성하기 전
+	 			  해당 부문을 설명하는 코멘트 작성 가능
+	 			  ex)아이디를 입력하세요, 비밀번호를 입력하세요 등
+	 			  
+	 			  
+	*/
+	function clickButton() {
+		alert("버튼2 클릭됨!")
+	}
+	
+	function mouseover() {
+		document.getElementById("mouseResultArea").innerHTML = "마우스오버!";
+	}
+	
+	function mouseout() {
+		document.getElementById("mouseResultArea").innerHTML = "마우스아웃!";
+	}
+	
+	function changeImage() {
+		let jpg1 = document.getElementById("img");
+		jpg1.src = "2.jpg";
+	}
+	
+	function changeImage2() {
+		let jpg1 = document.getElementById("img");
+		jpg1.src = "1.jpg";
+	}
+	
+	// body 문 changeColor() this, 색명(또는 RGB) 선언 시,
+	// this 는 function의 XXXColor와 연동되고
+	// 색명(RGB) 선언 시 color 와 연동되므로
+	// 문법 : XXXColor.style.background = color; 로 각각의 색명 선택가능.
+	// background = bgColor = 선언문의 배경색 변경이 가능하고
+	// frontground(?) = fgColor = 선언문의 글씨 색상 변경 가능하다.
+	function changeColor(nameColor, color) {
+		nameColor.style.background = color;
+	}
+	
+	function changeColor2(ageColor, color) {
+		ageColor.style.background = color;
+	}
+	
+	function changeColor(table, color) {
+		table.style.background = color;
+	}
+	
+	// this.value 를 통해 id 입력창의 입력값(value 속성값)을 전달받는 함수 정의
+	function checkId(id) {
+		// span 태그 영역 객체 가져오기
+		let spanElem = document.getElementById("checkIdResult");
+		
+		// 입력받은 id 가 "admin"인지 판별(임시)
+		// => 만약, "admin" 일 경우 span 태그 영역에 "사용 불가능한 아이디" 텍스트 출력(RED)
+		//    아니면,  span 태그 영역에 "사용 가능한 아이디" 텍스트 출력(GREEN)
+		if(id == "admin") {
+			spanElem.innerHTML = "사용 불가능한 아이디";
+			spanElem.style.color = "RED";
+		} else {
+			spanElem.innerHTML = "사용 가능한 아이디";
+			spanElem.style.color = "GREEN";
+		}
+		
+	}
+	
+	function checkId2(id) {
+		// span 태그 영역 객체 가져오기
+		let spanElem = document.getElementById("checkIdResult2");
+		
+		// 입력받은 id 가 "admin"인지 판별(임시)
+		// => 만약, "admin" 일 경우 span 태그 영역에 "사용 불가능한 아이디" 텍스트 출력(RED)
+		//    아니면,  span 태그 영역에 "사용 가능한 아이디" 텍스트 출력(GREEN)
+		if(id == "admin") {
+			spanElem.innerHTML = "사용 불가능한 아이디";
+			spanElem.style.color = "RED";
+		} else {
+			spanElem.innerHTML = "사용 가능한 아이디";
+			spanElem.style.color = "GREEN";
+		}
+		
+	}
+	
+</script>
+</head>
+<body>
+	<h1>test10.html</h1>
+	
+	<!-- "클릭" 버튼 클릭시 alert() 함수를 사용하여 "버튼 클릭됨!" 출력 -->
+	<input type="button" value="클릭" onclick="alert('버튼 클릭됨!')">
+	<!--  "클릭2" 버튼 클릭시 clickButton() 함수를 호출하여 "버튼2 클릭됨!" 출력 -->
+	<button onclick="clickButton()">클릭2</button>
+	
+	<!-- "마우스를 가져다 대세요" 버튼에 mouseover, mouseout 이벤트 처리 -->
+	<!-- 하나의 대상에 복수개의 이벤트 연결 가능 -->
+<!-- 	<button onmouseover="alert('마우스오버!')" onmouseout="alert('마우스 아웃!')">마우스를 가져다 대세요</button> -->
+	<button onmouseover="mouseover()" onmouseout="mouseout()">마우스를 가져다 대세요</button>
+	<div id="mouseResultArea"></div>
+	
+	<hr>
+	<!--  "이미지 교체" 버튼 클릭 시 기존에 표시된 이미지를 다른 이미지로 교체-->
+	<!--  이미지에 마우스를 가져다 대면 2.jpg, 마우스를 밖으로 빼면 1.jpg로 교체 -->
+	<img src="1.jpg" id="img" width="500" height="500" 
+	onmouseover="document.getElementById('img').src = '2.jpg'" 
+	onmouseout="document.getElementById('img').src = '1.jpg'" ><br>
+	<button onclick="changeImage()">이미지 교체</button>
+	<button onclick="changeImage2()">이미지 복원</button>
+	
+	<hr>
+	
+	<!-- 
+	이름을 입력받는 입력창에 포커스가 위치(onfocus)하면 입력창 색을 "SKYBLUE" 색으로 변경 
+	포커스가 해제(onblur)되면 "WHITE" 로 변경.
+	=> 이 때, 하나의 함수에 색상명을 전달하여 구분하도록 정의
+	 -->
+	 이름 : <input type="text" id="name" 
+	 onfocus="changeColor(this, 'SKYBLUE')" onblur="changeColor(this, 'WHITE')"> <br>
+	 <!--  onXXX 이벤트에서 함수 호출 시 파라피터로 this 를 전달할 경우 해당 태그 객체 직접 전달 -->
+	 나이 : <input type="text" id="age" 
+	 onfocus="changeColor2(this, '#FFCCCC')" onblur="changeColor2(this, 'WHITE')">
+	 
+	 <hr>
+	 <table border = "1" >
+	 	<tr>
+	 	<th colspan="4">테이블 연습<br></th>
+	 	</tr>
+	 	<tr onmouseover="changeColor(this, 'SKYBLUE')" onmouseout="changeColor(this, 'WHITE')">
+	 	 <td>1-1</td>
+	 	 <td>1-2</td>
+	 	 <td>1-3</td>
+	 	 <td>1-4</td>
+	 	</tr>
+	 	<tr onmouseover="changeColor(this, '#FFCCCC')" onmouseout="changeColor(this, 'WHITE')">
+	 	 <td>2-1</td>
+	 	 <td>2-2</td>
+	 	 <td>2-3</td>
+	 	 <td>2-4</td>
+	 	</tr>
+	 	<tr onmouseover="changeColor(this, 'GRAY')" onmouseout="changeColor(this, 'WHITE')">
+	 	 <td>3-1</td>
+	 	 <td>3-2</td>
+	 	 <td>3-3</td>
+	 	 <td>3-4</td>
+	 	</tr>
+	 </table>
+	 
+	 <hr>
+	 <!--
+	  아이디 입력란에 글자를 입력할 때 마다 아이디를 비교하여 결과를 span 영역에 출력하기
+	  => 이 때, 특정 요소의 속성값을 함수 파라미터로 전달하려면 this.속성명 을 사용
+	     (ex, this.value)
+	   -->
+	   아이디 : <input type="text" id="id" placeholder="아이디입력" onkeyup="checkId(this.value)">
+	   <!--  div 와 span 의 차이는 div는 한줄을 모두 차지하고 span은 다른 요소와 어울리게 배치 -->
+	   <span id="checkIdResult"></span>
+	   <br>
+	   <!-- 
+	   donchange 는 onkeyXXX 과 달리 키를 누를때마다 동작하는 것이 아니라
+	   해당 요소의 내용이 변경 되고 포커스가 빠져나갈 때 동작함(변경되지 않으면 동작x)
+	    -->
+	    아이디 : <input type="text" id="id" placeholder="아이디입력" onchange="checkId2(this.value)">
+	   <!--  div 와 span 의 차이는 div는 한줄을 모두 차지하고 span은 다른 요소와 어울리게 배치 -->
+	   <span id="checkIdResult2"></span>
+ </body>
+</html>

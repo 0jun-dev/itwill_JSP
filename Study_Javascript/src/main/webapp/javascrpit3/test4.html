@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	[ window 객체 ]
+	- 자바스크립트 최상위(루트) 객체
+	- 자바스크립트 전역에서 접근 가능한 객체
+	- 웹브라우저 창(browser)을 가리키는 용도로 사용되며,
+	  창에 대한 다양한 작업을 수행할 수 있는 여러가지 메서드, 속성 제공
+	  => window 객체 접근 시 window 객체명은 생략 가능
+	     ex)window.open() => open() 등 
+	     
+	[ window 객체의 하위 객체들 ]
+    1. document
+    2. navigator, location, history 등
+    3. Object, Array, function 등
+	*/
+	
+	function showWindowInfo() {
+		// 윈도우 객체 내의 속성을 사용하여 현재창에 대한 기본 정보 확인 및 제어도 가능
+// 		alert("창 높이 : " + window.innerHeight + "\n 창 너비 : " + window.innerWidth);
+	    alert("창 높이 : " + innerHeight + "\n 창 너비 : " + innerWidth);
+		
+	}
+	
+	function openWindow() {
+		// 윈도우 객체의 메서드를 호출(window.메서드명())
+		// window.open() : 새 창 열기
+		// => window.open("새 창에서 표시할 URL 또는 파일명", "창 이름", "창 옵션(크기, 위치, 등)")
+// 		window.open("http://www.itwillbs.co.kr", "", "");
+		// => 창의 크기 옵션 지정을 생략할 경우 기존 웹브라우저의 새 탭에 지정한 대상이 열림
+		
+		// 창 크기 옵션 지정 시 새 창으로 대상 열림
+// 		window.open("http://www.itwillbs.co.kr", "", "width=300, height=300");
+		
+		// 창 크기 옵션, 창 위치 지정 시 새 창으로 대상 열림 (좌측기준)
+// 		window.open("http://www.itwillbs.co.kr", "", "width=300, height=300, left=600, top=400");
+		
+		// 창 이름 설정 시  해당 이름과 동일한 이름을 갖는 새창은 항상 같은 창에서 새로운 페이지가 열림
+		window.open("http://www.itwillbs.co.kr", "newWin", "width=300, height=300, left=600, top=400");
+	}
+	
+	function openWindow2() {
+		// URL 대신 파일명 지정 시 해당 파일이 새 창에서 실행됨
+// 		window.open("test1.html", "", "width=300, height=300");
+		window.open("test1.html", "newWin", "width=300, height=300");
+	}
+	
+	function closeWindow() {
+		window.close(); // 현재 창 닫기
+	}
+	
+	function openWindow3() {
+		window.open("test4_new_window.html", "", "width=800, height=400");
+	}
+</script>
+</head>
+<body>
+	<h1>window 내장 객체</h1>
+	<input type="button" value="창(윈도우) 정보확인" onclick="showWindowInfo()"> <br>
+	<input type="button" value="새 창 열기" onclick="openWindow()"> <br>
+	<input type="button" value="새 창 열기 2" onclick="openWindow2()"> <br>
+	<input type="button" value="현재 창 닫기" onclick="closeWindow()"> <br>
+    <!--
+     "test3_new_window.html 열기" 버튼 클릭 시 openWindow3() 함수 호출하고
+    해당 함수 내에서 test3_new_window.html 파일을 새창으로 열기 
+    -->
+    <input type="button" value="test4_new_window.html 열기" onclick="openWindow3()"> <br>
+</body>
+</html>
