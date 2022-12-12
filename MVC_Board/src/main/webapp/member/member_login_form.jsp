@@ -27,7 +27,7 @@
 			<tr>
 				<td colspan="2" align="center">
 					<input type="submit" value="로그인">
-					<input type="button" value="회원가입" onclick="location.href='member_join_form.jsp'">
+					<input type="button" value="회원가입" onclick="location.href='MemberJoinForm.me'">
 				</td>
 			</tr>
 		</table>

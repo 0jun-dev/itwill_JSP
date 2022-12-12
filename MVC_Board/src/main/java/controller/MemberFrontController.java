@@ -21,6 +21,7 @@ import action.BoardReplyFormAction;
 import action.BoardReplyProAction;
 import action.BoardWriteProAction;
 import action.MemberJoinProAction;
+import action.MemberListAction;
 import action.MemberLoginProAction;
 import action.MemberLogoutProAction;
 import vo.ActionForward;
@@ -58,6 +59,15 @@ public class MemberFrontController extends HttpServlet {
 
 		} else if (command.equals("/MemberLogout.me")) {
 			action = new MemberLogoutProAction();
+			forward = action.execute(request, response);
+			
+		} else if (command.equals("/MemberJoinResult.me")) {
+			forward = new ActionForward();
+			forward.setPath("member/member_join_result.jsp");
+			forward.setRedirect(false); // 생략 가능
+			
+		} else if (command.equals("/MemberList.me")) {
+			action = new MemberListAction();
 			forward = action.execute(request, response);
 			
 		}

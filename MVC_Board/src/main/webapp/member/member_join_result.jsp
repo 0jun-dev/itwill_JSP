@@ -8,8 +8,8 @@
 </head>
 <body>
 	<h1>회원 가입 완료</h1>
-	<input type="button" value="홈으로" onclick="location.href=''">
-	<input type="button" value="로그인" onclick="location.href=''">
+	<input type="button" value="홈으로" onclick="location.href='./'">
+	<input type="button" value="로그인" onclick="location.href='MemberLoginForm.me'">
 </body>
 </html>
 
