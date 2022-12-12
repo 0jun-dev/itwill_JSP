@@ -20,6 +20,8 @@ import action.BoardModifyProAction;
 import action.BoardReplyFormAction;
 import action.BoardReplyProAction;
 import action.BoardWriteProAction;
+import action.MemberJoinProAction;
+import action.MemberLoginProAction;
 import vo.ActionForward;
 
 @WebServlet("*.bo")
@@ -137,6 +139,14 @@ public class BoardFrontController extends HttpServlet {
 			
 		} else if (command.equals("/BoardReplyPro.bo")) {
 			action = new BoardReplyProAction();
+			forward = action.execute(request, response);
+			
+		} else if (command.equals("/MemberJoinForm.bo")) {
+			action = new MemberJoinProAction();
+			forward = action.execute(request, response);
+			
+		} else if (command.equals("/MemberLoginForm.bo")) {
+			action = new MemberLoginProAction();
 			forward = action.execute(request, response);
 			
 		} 

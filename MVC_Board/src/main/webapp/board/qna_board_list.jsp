@@ -62,7 +62,12 @@
 	}
 </style>
 </head>
+<link href="css/default.css" rel="stylesheet" type="text/css">
 <body>
+	<header>
+		<!--  로그인, 조인 링크 표시 영역 -->
+		<jsp:include page="/inc/top.jsp" ></jsp:include>
+	</header>
 	<!-- 게시판 리스트 -->
 	<section id="listForm">
 	<h2>게시판 글 목록</h2>
@@ -88,6 +93,14 @@
 					</c:otherwise>
 				</c:choose>
 				<td id="subject">
+					<c:if test="${board.board_re_lev > 0}"> <!-- lev가 0 보다 크면 답글이므로 들여쓰기 후 이미지 추가 -->
+						<!--  반복문을 통해 lev 값 만큼 공백 추가 -->
+						<c:forEach var="i" begin="1" end="${board.board_re_lev}">
+							&nbsp;&nbsp;
+						</c:forEach>
+						<!-- 답글 제목 앞에 이미지 추가 -->					
+						<img src ="images/re.gif">
+					</c:if>
 					<a href="BoardDetail.bo?board_num=${board.board_num }&pageNum=${pageNum}">
 						${board.board_subject }
 					</a>

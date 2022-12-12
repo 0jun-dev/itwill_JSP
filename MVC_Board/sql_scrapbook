@@ -16,3 +16,12 @@ CREATE TABLE board (
 );
 
 select max(board_num) from board;
+
+CREATE TABLE member (
+	name VARCHAR(20) NOT NULL,
+	id VARCHAR(16) PRIMARY KEY,
+	passwd VARCHAR(16) NOT NULL,
+	email VARCHAR(50) UNIQUE NOT NULL,
+	gender VARCHAR(1) NOT NULL,
+	date DATE NOT NULL
+);

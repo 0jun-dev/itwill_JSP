@@ -38,6 +38,7 @@
 	}
 </style>
 </head>
+<link href="css/default.css" rel="stylesheet" type="text/css">
 <body>
 	<!-- 게시판 답글 작성 -->
 	<section id="replyForm">
@@ -46,7 +47,7 @@
 			<!--  입력받지 않은 글번호는 hidden 속성으로 전달 -->
 			<input type="hidden" name="board_num" value="${param.board_num }">
 			<input type="hidden" name="pageNum" value="${param.pageNum }">
-			<!-- 답글 자성에 필요한 정보도 hidden 속성으로 전달 -->
+			<!-- 답글 작성에 필요한 정보도 hidden 속성으로 전달 -->
 			<input type="hidden" name="board_re_ref" value="${board.board_re_ref }">
 			<input type="hidden" name="board_re_lev" value="${board.board_re_lev }">
 			<input type="hidden" name="board_re_seq" value="${board.board_re_seq }">

@@ -55,7 +55,12 @@
 	}
 </style>
 </head>
+<link href="css/default.css" rel="stylesheet" type="text/css">
 <body>
+<header>
+		<!--  로그인, 조인 링크 표시 영역 -->
+		<jsp:include page="/inc/top.jsp" ></jsp:include>
+	</header>
 	<!-- 게시판 상세내용 보기 -->
 	<section id="articleForm">
 		<h2>글 상세내용 보기</h2>
